@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Course Overview & Syllabus",
+    "visible": 1,
+    "summary": "<div class=\"intro-banner\"><h2 style=\"color: #003366;\">Welcome to CS101</h2><p style=\"font-size: 14px; line-height: 1.5;\">Please review the <strong>syllabus</strong> and grading policies carefully.</p><p>Office hours are held virtually on <span style=\"text-decoration: underline;\">Wednesdays 2-4 PM</span>.</p></div>",
+    "summaryformat": 1,
+    "section": 0,
+    "uservisible": true,
+    "modules": [
+      {
+        "id": 201,
+        "url": "https://moodle.example.com/mod/resource/view.php?id=201",
+        "name": "Official Syllabus (Spring 2026)",
+        "instance": 1,
+        "contextid": 301,
+        "description": "<div class=\"syllabus-desc\"><p style=\"color: #222;\">Comprehensive course schedule and textbook requirements.</p><ul><li>Grading: 40% Assignments, 30% Midterm, 30% Final</li><li>Academic Integrity Code enforced</li></ul></div>",
+        "visible": 1,
+        "uservisible": true,
+        "modname": "resource",
+        "modplural": "Files",
+        "contents": [
+          {
+            "type": "file",
+            "filename": "Syllabus_CS101_2026.pdf",
+            "filepath": "/",
+            "filesize": 254120,
+            "fileurl": "https://moodle.example.com/webservice/pluginfile.php/301/mod_resource/content/1/Syllabus_CS101_2026.pdf",
+            "mimetype": "application/pdf"
+          }
+        ]
+      },
+      {
+        "id": 202,
+        "url": "https://moodle.example.com/mod/assign/view.php?id=202",
+        "name": "Assignment 1: Algorithms & Complexity",
+        "instance": 10,
+        "contextid": 302,
+        "description": "<div class=\"assign-desc\"><p>Implement binary search trees and analyze traversal runtime in Python.</p></div>",
+        "visible": 1,
+        "uservisible": true,
+        "modname": "assign",
+        "modplural": "Assignments",
+        "contents": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Week 1: Algorithmic Foundations",
+    "visible": 1,
+    "summary": "<p>Introduction to Big-O notation, asymptotic analysis, and recurrence relations.</p>",
+    "summaryformat": 1,
+    "section": 1,
+    "uservisible": true,
+    "modules": [
+      {
+        "id": 203,
+        "url": "https://moodle.example.com/mod/page/view.php?id=203",
+        "name": "Lecture Notes: Asymptotic Bounds",
+        "instance": 2,
+        "contextid": 303,
+        "description": "<p>Readings for week 1.</p>",
+        "visible": 1,
+        "uservisible": true,
+        "modname": "page",
+        "modplural": "Pages",
+        "contents": []
+      }
+    ]
+  }
+]

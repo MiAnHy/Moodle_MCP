@@ -1,0 +1,42 @@
+[
+  {
+    "id": 42,
+    "username": "student1",
+    "firstname": "Alice",
+    "lastname": "Smith",
+    "fullname": "Alice Smith",
+    "email": "alice.smith@university.edu",
+    "password": "$2y$10$abcdefghijklmnopqrstuvwxyz0123456789",
+    "passwordhash": "$2y$10$abcdefghijklmnopqrstuvwxyz0123456789",
+    "salt": "internal_student_salt_9988",
+    "auth": "manual",
+    "roles": [
+      {
+        "roleid": 5,
+        "name": "Student",
+        "shortname": "student",
+        "sortorder": 5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "username": "teacher1",
+    "firstname": "Terry",
+    "lastname": "Teacher",
+    "fullname": "Terry Teacher",
+    "email": "terry.teacher@university.edu",
+    "password": "$2y$10$9876543210zyxwvutsrqponmlkjihgfedcba",
+    "passwordhash": "$2y$10$9876543210zyxwvutsrqponmlkjihgfedcba",
+    "salt": "internal_teacher_salt_1122",
+    "auth": "manual",
+    "roles": [
+      {
+        "roleid": 3,
+        "name": "Teacher",
+        "shortname": "editingteacher",
+        "sortorder": 3
+      }
+    ]
+  }
+]

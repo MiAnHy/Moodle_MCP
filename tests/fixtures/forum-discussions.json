@@ -1,0 +1,33 @@
+{
+  "discussions": [
+    {
+      "id": 401,
+      "course": 101,
+      "forum": 12,
+      "name": "Midterm Examination Preparation Guide",
+      "userid": 3,
+      "timemodified": 1710000000,
+      "firstuserfullname": "Terry Teacher",
+      "firstuseremail": "terry.teacher@university.edu",
+      "numreplies": 5,
+      "pinned": true,
+      "locked": false,
+      "message": "<p>The midterm exam will cover Weeks 1 through 4. Permitted items: non-programmable calculator, one 8.5x11 hand-written notes cheat sheet.</p>"
+    },
+    {
+      "id": 402,
+      "course": 101,
+      "forum": 12,
+      "name": "Study Group for Assignment 1",
+      "userid": 42,
+      "timemodified": 1710100000,
+      "firstuserfullname": "Alice Smith",
+      "firstuseremail": "alice.smith@university.edu",
+      "numreplies": 2,
+      "pinned": false,
+      "locked": false,
+      "message": "<p>Hey everyone, let's meet in the library or Discord at 6 PM Thursday to discuss recurrence relations.</p><script>alert('xss_test')</script>"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "id": 101,
+      "name": "Assignment 1: Algorithms & Complexity Due",
+      "description": "<p>Submit your final lab report and source code in ZIP format.</p>",
+      "format": 1,
+      "courseid": 101,
+      "categoryid": 1,
+      "groupid": 0,
+      "userid": 42,
+      "modulename": "assign",
+      "instance": 10,
+      "eventtype": "due",
+      "timestart": 1710547200,
+      "timeduration": 0,
+      "timesort": 1710547200,
+      "visible": 1,
+      "timemodified": 1709251200,
+      "action": {
+        "name": "Add submission",
+        "url": "https://moodle.example.com/mod/assign/view.php?id=201",
+        "itemcount": 1,
+        "actionable": true
+      }
+    },
+    {
+      "id": 102,
+      "name": "Midterm Examination",
+      "description": "<p>Online examination window open for 120 minutes.</p>",
+      "format": 1,
+      "courseid": 101,
+      "categoryid": 1,
+      "groupid": 0,
+      "userid": 42,
+      "modulename": "quiz",
+      "instance": 5,
+      "eventtype": "close",
+      "timestart": 1711756800,
+      "timeduration": 7200,
+      "timesort": 1711756800,
+      "visible": 1,
+      "timemodified": 1709251200,
+      "action": {
+        "name": "Attempt quiz now",
+        "url": "https://moodle.example.com/mod/quiz/view.php?id=205",
+        "itemcount": 1,
+        "actionable": true
+      }
+    }
+  ],
+  "firstid": 101,
+  "lastid": 102,
+  "warnings": []
+}

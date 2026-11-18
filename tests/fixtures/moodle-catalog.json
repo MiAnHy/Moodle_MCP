@@ -1,0 +1,92 @@
+[
+  {
+    "name": "core_course_get_courses",
+    "description": "Return course details by course IDs or all courses",
+    "component": "core_course",
+    "parameters": {
+      "options": {
+        "type": "object",
+        "required": false,
+        "description": "Options array with ids filter"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of courses"
+    }
+  },
+  {
+    "name": "core_cohort_get_cohorts",
+    "description": "Returns cohort details for specified cohort IDs",
+    "component": "core_cohort",
+    "parameters": {
+      "cohortids": {
+        "type": "array",
+        "required": true,
+        "description": "List of cohort IDs"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of cohorts"
+    }
+  },
+  {
+    "name": "mod_quiz_get_quizzes_by_courses",
+    "description": "Returns a list of quizzes in a provided list of courses",
+    "component": "mod_quiz",
+    "parameters": {
+      "courseids": {
+        "type": "array",
+        "required": true,
+        "description": "Array of course IDs"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Quizzes list and warnings"
+    }
+  },
+  {
+    "name": "core_user_get_users",
+    "description": "Search for users matching specified criteria",
+    "component": "core_user",
+    "parameters": {
+      "criteria": {
+        "type": "array",
+        "required": true,
+        "description": "Search criteria array"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "List of users"
+    }
+  },
+  {
+    "name": "mod_assign_save_grade",
+    "description": "Save a grade update for a student submission",
+    "component": "mod_assign",
+    "parameters": {
+      "assignmentid": {
+        "type": "integer",
+        "required": true,
+        "description": "The assignment ID"
+      },
+      "userid": {
+        "type": "integer",
+        "required": true,
+        "description": "The student ID"
+      },
+      "grade": {
+        "type": "number",
+        "required": true,
+        "description": "The numeric grade"
+      }
+    },
+    "returns": {
+      "type": "null",
+      "description": "Null on success"
+    }
+  }
+]

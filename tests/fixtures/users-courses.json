@@ -1,0 +1,29 @@
+[
+  {
+    "id": 101,
+    "shortname": "CS101",
+    "fullname": "Introduction to Computer Science",
+    "displayname": "CS101 - Introduction to Computer Science",
+    "enrolledusercount": 45,
+    "idnumber": "CS-2026-01",
+    "visible": 1,
+    "summary": "<div class=\"no-overflow\"><style type=\"text/css\">.course-summary-container { font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #333333; margin: 0; padding: 15px; border: 1px solid #e3e3e3; } .course-summary-container .title { font-weight: bold; font-size: 18px; color: #111111; margin-bottom: 12px; } .course-summary-container .module-list { list-style-type: square; margin-left: 20px; } .course-summary-container .module-item { margin-bottom: 5px; font-size: 13px; } .course-summary-container .syllabus-link { color: #0066cc; text-decoration: underline; font-size: 12px; }</style><nav class=\"breadcrumb-nav\" role=\"navigation\"><ul class=\"breadcrumb\"><li><a href=\"/course/index.php\">Home</a></li><li><a href=\"/course/index.php?categoryid=1\">Computer Science</a></li><li class=\"active\">CS101</li></ul></nav><div class=\"activity-navigation\"><span class=\"nav-item\"><a href=\"#\">Next: Course Announcements</a></span></div><div class=\"course-summary-container\"><p><span class=\"title\">Welcome to CS101!</span> This course introduces foundational concepts of computer programming and software design.</p><ul class=\"module-list\"><li class=\"module-item\">Algorithms &amp; Data Structures</li><li class=\"module-item\">Python Programming</li><li class=\"module-item\">Web Architecture &amp; MCP</li></ul><p><a class=\"syllabus-link\" href=\"https://moodle.example.com/syllabus.pdf\">Download Course Syllabus</a></p></div><div class=\"action-menu moodle-actionmenu\"><button class=\"btn btn-secondary\">Options</button></div><!-- behat_test_flag: active_course_session_4821 --></div>",
+    "summaryformat": 1,
+    "format": "topics",
+    "showgrades": 1,
+    "lang": "en",
+    "enablecompletion": 1,
+    "completionhascriteria": 0,
+    "completionusertracked": 0,
+    "category": 1,
+    "progress": 75,
+    "completed": false,
+    "startdate": 1704067200,
+    "enddate": 1717113600,
+    "marker": 0,
+    "lastaccess": 1709289600,
+    "isfavourite": true,
+    "hidden": false,
+    "overviewfiles": []
+  }
+]

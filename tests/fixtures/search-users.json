@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 42,
+      "username": "student1",
+      "firstname": "Alice",
+      "lastname": "Smith",
+      "fullname": "Alice Smith",
+      "email": "alice.smith@university.edu",
+      "auth": "manual",
+      "password": "$2y$10$abcdefghijklmnopqrstuvwxyz0123456789",
+      "passwordhash": "$2y$10$abcdefghijklmnopqrstuvwxyz0123456789",
+      "salt": "secret_user_salt_87654321",
+      "sessionkey": "sess_abcdef1234567890",
+      "suspended": false,
+      "confirmed": true
+    },
+    {
+      "id": 3,
+      "username": "teacher1",
+      "firstname": "Terry",
+      "lastname": "Teacher",
+      "fullname": "Terry Teacher",
+      "email": "terry.teacher@university.edu",
+      "auth": "manual",
+      "password": "$2y$10$9876543210zyxwvutsrqponmlkjihgfedcba",
+      "passwordhash": "$2y$10$9876543210zyxwvutsrqponmlkjihgfedcba",
+      "salt": "secret_teacher_salt_12345678",
+      "sessionkey": "sess_9876543210fedcba",
+      "suspended": false,
+      "confirmed": true
+    }
+  ],
+  "warnings": []
+}

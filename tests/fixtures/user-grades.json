@@ -1,0 +1,79 @@
+{
+  "usergrades": [
+    {
+      "courseid": 101,
+      "courseidnumber": "CS-2026-01",
+      "userfullname": "Alice Smith",
+      "userid": 42,
+      "gradeitems": [
+        {
+          "id": 1001,
+          "itemname": "Assignment 1: Algorithms & Complexity",
+          "itemtype": "mod",
+          "itemmodule": "assign",
+          "iteminstance": 10,
+          "itemnumber": 0,
+          "idnumber": "",
+          "categoryid": 1,
+          "outcomeid": null,
+          "scaleid": null,
+          "locked": false,
+          "cmid": 201,
+          "graderaw": 92.5,
+          "gradedatesubmitted": 1706745600,
+          "gradedategraded": 1706832000,
+          "gradeformatted": "92.50 %",
+          "grademin": 0,
+          "grademax": 100,
+          "feedback": "<p>Excellent algorithmic efficiency analysis. Good use of Big-O notation.</p>",
+          "feedbackformat": 1
+        },
+        {
+          "id": 1002,
+          "itemname": "Midterm Examination",
+          "itemtype": "mod",
+          "itemmodule": "quiz",
+          "iteminstance": 5,
+          "itemnumber": 0,
+          "idnumber": "",
+          "categoryid": 1,
+          "outcomeid": null,
+          "scaleid": null,
+          "locked": false,
+          "cmid": 205,
+          "graderaw": 88.0,
+          "gradedatesubmitted": 1708041600,
+          "gradedategraded": 1708128000,
+          "gradeformatted": "88.00 %",
+          "grademin": 0,
+          "grademax": 100,
+          "feedback": "<p>Strong theoretical knowledge. Watch out for boundary conditions in question 4.</p>",
+          "feedbackformat": 1
+        },
+        {
+          "id": 1003,
+          "itemname": "Course total",
+          "itemtype": "course",
+          "itemmodule": null,
+          "iteminstance": 101,
+          "itemnumber": null,
+          "idnumber": "",
+          "categoryid": null,
+          "outcomeid": null,
+          "scaleid": null,
+          "locked": false,
+          "cmid": null,
+          "graderaw": 90.25,
+          "gradedatesubmitted": null,
+          "gradedategraded": 1708128000,
+          "gradeformatted": "90.25 %",
+          "grademin": 0,
+          "grademax": 100,
+          "feedback": "",
+          "feedbackformat": 0
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

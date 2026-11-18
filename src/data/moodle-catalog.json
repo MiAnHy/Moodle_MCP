@@ -1,0 +1,420 @@
+[
+  {
+    "name": "core_course_get_courses",
+    "description": "Return course details by course IDs or all courses",
+    "component": "core_course",
+    "parameters": {
+      "options": {
+        "type": "object",
+        "required": false,
+        "description": "Options array with ids filter"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of courses"
+    }
+  },
+  {
+    "name": "core_course_get_contents",
+    "description": "Get course contents (sections, activities and resources)",
+    "component": "core_course",
+    "parameters": {
+      "courseid": {
+        "type": "number",
+        "required": true,
+        "description": "Moodle course ID"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of course sections and modules"
+    }
+  },
+  {
+    "name": "core_course_create_courses",
+    "description": "Create new courses in Moodle",
+    "component": "core_course",
+    "parameters": {
+      "courses": {
+        "type": "array",
+        "required": true,
+        "description": "List of course objects (fullname, shortname, categoryid)"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of created courses"
+    }
+  },
+  {
+    "name": "core_course_delete_courses",
+    "description": "Deletes courses from Moodle",
+    "component": "core_course",
+    "parameters": {
+      "courseids": {
+        "type": "array",
+        "required": true,
+        "description": "Array of course IDs to delete"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "Warnings list"
+    }
+  },
+  {
+    "name": "core_user_get_users",
+    "description": "Search and retrieve users matching criteria",
+    "component": "core_user",
+    "parameters": {
+      "criteria": {
+        "type": "array",
+        "required": true,
+        "description": "Search criteria array (key, value)"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Users and warnings"
+    }
+  },
+  {
+    "name": "core_user_create_users",
+    "description": "Provision new user accounts in Moodle",
+    "component": "core_user",
+    "parameters": {
+      "users": {
+        "type": "array",
+        "required": true,
+        "description": "Array of user specifications"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of created user IDs"
+    }
+  },
+  {
+    "name": "core_user_update_users",
+    "description": "Update existing user accounts in Moodle",
+    "component": "core_user",
+    "parameters": {
+      "users": {
+        "type": "array",
+        "required": true,
+        "description": "Array of user objects with id and fields to update"
+      }
+    },
+    "returns": {
+      "type": "null",
+      "description": "Void"
+    }
+  },
+  {
+    "name": "core_enrol_get_enrolled_users",
+    "description": "Get enrolled users in a course with details",
+    "component": "core_enrol",
+    "parameters": {
+      "courseid": {
+        "type": "number",
+        "required": true,
+        "description": "Course ID"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of users"
+    }
+  },
+  {
+    "name": "core_enrol_get_users_courses",
+    "description": "Get the list of courses a user is enrolled in",
+    "component": "core_enrol",
+    "parameters": {
+      "userid": {
+        "type": "number",
+        "required": true,
+        "description": "User ID"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of user courses"
+    }
+  },
+  {
+    "name": "enrol_manual_enrol_users",
+    "description": "Manual role enrollment of users into a course",
+    "component": "enrol_manual",
+    "parameters": {
+      "enrolments": {
+        "type": "array",
+        "required": true,
+        "description": "List of enrolments (roleid, userid, courseid)"
+      }
+    },
+    "returns": {
+      "type": "null",
+      "description": "Void"
+    }
+  },
+  {
+    "name": "core_calendar_get_action_events_by_course",
+    "description": "Get action calendar events for a given course",
+    "component": "core_calendar",
+    "parameters": {
+      "courseid": {
+        "type": "number",
+        "required": true,
+        "description": "Course ID"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Events list"
+    }
+  },
+  {
+    "name": "core_calendar_create_calendar_events",
+    "description": "Create new calendar events in Moodle",
+    "component": "core_calendar",
+    "parameters": {
+      "events": {
+        "type": "array",
+        "required": true,
+        "description": "List of event objects"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Created events"
+    }
+  },
+  {
+    "name": "gradereport_user_get_grade_items",
+    "description": "Returns user grade items and feedback for a course",
+    "component": "gradereport_user",
+    "parameters": {
+      "courseid": {
+        "type": "number",
+        "required": true,
+        "description": "Course ID"
+      },
+      "userid": {
+        "type": "number",
+        "required": false,
+        "description": "Optional User ID"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "User grades list"
+    }
+  },
+  {
+    "name": "core_grades_update_grades",
+    "description": "Update or insert grades into Moodle gradebook",
+    "component": "core_grades",
+    "parameters": {
+      "source": { "type": "string", "required": true, "description": "Source module" },
+      "courseid": { "type": "number", "required": true, "description": "Course ID" },
+      "component": { "type": "string", "required": true, "description": "Component name" },
+      "activityid": { "type": "number", "required": true, "description": "Activity ID" },
+      "itemnumber": { "type": "number", "required": true, "description": "Item number" },
+      "grades": { "type": "array", "required": true, "description": "List of student grades" }
+    },
+    "returns": {
+      "type": "number",
+      "description": "Status code (0 on success)"
+    }
+  },
+  {
+    "name": "mod_assign_get_submissions",
+    "description": "Returns submissions for specified assignment IDs",
+    "component": "mod_assign",
+    "parameters": {
+      "assignmentids": {
+        "type": "array",
+        "required": true,
+        "description": "List of assignment IDs"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Submissions and warnings"
+    }
+  },
+  {
+    "name": "mod_assign_get_submission_status",
+    "description": "Returns detailed submission status for an assignment and user",
+    "component": "mod_assign",
+    "parameters": {
+      "assignid": {
+        "type": "number",
+        "required": true,
+        "description": "Assignment ID"
+      },
+      "userid": {
+        "type": "number",
+        "required": false,
+        "description": "User ID"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Submission status"
+    }
+  },
+  {
+    "name": "mod_assign_save_grade",
+    "description": "Grade an assignment submission and provide feedback",
+    "component": "mod_assign",
+    "parameters": {
+      "assignmentid": { "type": "number", "required": true, "description": "Assignment ID" },
+      "userid": { "type": "number", "required": true, "description": "User ID" },
+      "grade": { "type": "number", "required": true, "description": "Numerical grade score" },
+      "attemptnumber": { "type": "number", "required": true, "description": "Attempt number" }
+    },
+    "returns": {
+      "type": "null",
+      "description": "Void"
+    }
+  },
+  {
+    "name": "mod_forum_get_forum_discussions",
+    "description": "Returns forum discussion threads for a specific forum ID",
+    "component": "mod_forum",
+    "parameters": {
+      "forumid": {
+        "type": "number",
+        "required": true,
+        "description": "Forum ID"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Discussions list"
+    }
+  },
+  {
+    "name": "mod_forum_add_discussion_post",
+    "description": "Create a new post in a discussion thread",
+    "component": "mod_forum",
+    "parameters": {
+      "postid": { "type": "number", "required": true, "description": "Parent post ID" },
+      "subject": { "type": "string", "required": true, "description": "Subject title" },
+      "message": { "type": "string", "required": true, "description": "Post body text" }
+    },
+    "returns": {
+      "type": "object",
+      "description": "New post details"
+    }
+  },
+  {
+    "name": "mod_quiz_get_quizzes_by_courses",
+    "description": "Returns a list of quizzes in a provided list of courses",
+    "component": "mod_quiz",
+    "parameters": {
+      "courseids": {
+        "type": "array",
+        "required": true,
+        "description": "List of course IDs"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "Quizzes list"
+    }
+  },
+  {
+    "name": "core_cohort_get_cohorts",
+    "description": "Returns cohort details for specified cohort IDs",
+    "component": "core_cohort",
+    "parameters": {
+      "cohortids": {
+        "type": "array",
+        "required": true,
+        "description": "List of cohort IDs"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of cohorts"
+    }
+  },
+  {
+    "name": "core_cohort_create_cohorts",
+    "description": "Creates new cohorts in Moodle",
+    "component": "core_cohort",
+    "parameters": {
+      "cohorts": {
+        "type": "array",
+        "required": true,
+        "description": "List of cohorts to create"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of created cohorts"
+    }
+  },
+  {
+    "name": "core_group_create_groups",
+    "description": "Creates groups in a course",
+    "component": "core_group",
+    "parameters": {
+      "groups": {
+        "type": "array",
+        "required": true,
+        "description": "List of groups to create"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of created groups"
+    }
+  },
+  {
+    "name": "core_competency_list_competencies",
+    "description": "List competencies in a course or framework",
+    "component": "core_competency",
+    "parameters": {
+      "filters": {
+        "type": "array",
+        "required": true,
+        "description": "Filters array"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "description": "List of competencies"
+    }
+  },
+  {
+    "name": "core_badge_get_user_badges",
+    "description": "Returns the list of badges awarded to a user",
+    "component": "core_badge",
+    "parameters": {
+      "userid": {
+        "type": "number",
+        "required": false,
+        "description": "User ID"
+      }
+    },
+    "returns": {
+      "type": "object",
+      "description": "User badges list"
+    }
+  },
+  {
+    "name": "core_webservice_get_site_info",
+    "description": "Return some site info / user info / web service capabilities",
+    "component": "core_webservice",
+    "parameters": {},
+    "returns": {
+      "type": "object",
+      "description": "Site info"
+    }
+  }
+]

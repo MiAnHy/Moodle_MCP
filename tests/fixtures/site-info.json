@@ -1,0 +1,30 @@
+{
+  "sitename": "Enterprise Moodle LMS",
+  "username": "admin",
+  "firstname": "System",
+  "lastname": "Administrator",
+  "fullname": "System Administrator",
+  "lang": "en",
+  "userpictureurl": "https://moodle.example.com/theme/image.php/boost/core/1/u/f1",
+  "siteurl": "https://moodle.example.com",
+  "downloadfiles": 1,
+  "uploadfiles": 1,
+  "release": "4.3.2 (Build: 20240115)",
+  "version": "2023100902.00",
+  "mobilecssurl": "",
+  "functions": [
+    { "name": "core_enrol_get_users_courses", "version": "2023100900" },
+    { "name": "gradereport_user_get_grade_items", "version": "2023100900" }
+  ],
+  "advancedfeatures": [
+    { "name": "usecomments", "value": 1 },
+    { "name": "usetags", "value": 1 }
+  ],
+  "usercanmanageownfiles": true,
+  "userquota": 104857600,
+  "usermaxuploadfilesize": 20971520,
+  "userhomepage": 0,
+  "userprivateaccesskey": "secret_private_access_key_12345",
+  "passwordhash": "$2y$10$abcdefghijklmnopqrstuvwxyz0123456789",
+  "salt": "internal_salt_value"
+}
