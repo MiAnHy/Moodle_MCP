@@ -26,29 +26,44 @@ function parseCliArgs(args: string[]): CliArgs {
   };
 
   for (let i = 2; i < args.length; i++) {
-    const arg = args[i];
+    const rawArg = args[i];
 
-    if (arg === 'login') {
+    if (rawArg === 'login') {
       result.command = 'login';
-    } else if (arg === '--transport' || arg === '-t') {
-      const val = args[++i];
-      if (val === 'stdio' || val === 'sse') {
-        result.transport = val;
-      }
-    } else if (arg === '--port' || arg === '-p') {
-      const val = parseInt(args[++i], 10);
-      if (!isNaN(val)) result.port = val;
-    } else if (arg === '--profile') {
-      const val = args[++i];
-      if (val === 'student' || val === 'teacher' || val === 'admin' || val === 'all') {
-        result.profile = val as RoleProfile;
-      }
-    } else if (arg === '--url') {
-      result.url = args[++i];
-    } else if (arg === '--token') {
-      result.token = args[++i];
-    } else if (arg === '--help' || arg === '-h') {
+      continue;
+    }
+
+    if (rawArg === '--help' || rawArg === '-h') {
       result.help = true;
+      continue;
+    }
+
+    let key = rawArg;
+    let val: string | undefined;
+
+    if (rawArg.includes('=')) {
+      const idx = rawArg.indexOf('=');
+      key = rawArg.substring(0, idx);
+      val = rawArg.substring(idx + 1);
+    }
+
+    if (key === '--transport' || key === '-t') {
+      const actualVal = val !== undefined ? val : args[++i];
+      if (actualVal === 'stdio' || actualVal === 'sse') {
+        result.transport = actualVal;
+      }
+    } else if (key === '--port' || key === '-p') {
+      const actualVal = parseInt(val !== undefined ? val : args[++i], 10);
+      if (!isNaN(actualVal)) result.port = actualVal;
+    } else if (key === '--profile') {
+      const actualVal = val !== undefined ? val : args[++i];
+      if (actualVal === 'student' || actualVal === 'teacher' || actualVal === 'admin' || actualVal === 'all') {
+        result.profile = actualVal as RoleProfile;
+      }
+    } else if (key === '--url') {
+      result.url = val !== undefined ? val : args[++i];
+    } else if (key === '--token') {
+      result.token = val !== undefined ? val : args[++i];
     }
   }
 
