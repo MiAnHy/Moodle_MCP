@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <defs>
+    <radialGradient id="gateGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#2563eb" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#07090e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gateBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="200" r="180" fill="url(#gateGlow)"/>
+
+  <!-- Outer Hexagonal Protocol Ring -->
+  <polygon points="200,30 350,115 350,285 200,370 50,285 50,115" 
+           fill="#0d121f" fill-opacity="0.85" 
+           stroke="url(#gateBorder)" stroke-width="2"/>
+
+  <!-- Inner Dynamic Ring -->
+  <polygon points="200,60 320,130 320,270 200,340 80,270 80,130" 
+           fill="none" 
+           stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="8 6" opacity="0.75"/>
+
+  <!-- Core Moodle "m" + MCP node circuit -->
+  <g transform="translate(100, 100) scale(0.5)">
+    <!-- Circuit nodes -->
+    <path d="M 60,200 L 120,140 L 180,200 L 240,140 L 300,200 L 340,160" stroke="#38bdf8" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <circle cx="60" cy="200" r="16" fill="#2563eb" stroke="#38bdf8" stroke-width="4"/>
+    <circle cx="120" cy="140" r="14" fill="#0d121f" stroke="#38bdf8" stroke-width="4"/>
+    <circle cx="180" cy="200" r="18" fill="#38bdf8" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="240" cy="140" r="14" fill="#0d121f" stroke="#38bdf8" stroke-width="4"/>
+    <circle cx="300" cy="200" r="16" fill="#2563eb" stroke="#38bdf8" stroke-width="4"/>
+    <circle cx="340" cy="160" r="12" fill="#38bdf8"/>
+    
+    <!-- Central Protocol Core -->
+    <circle cx="200" cy="200" r="40" fill="#0b0f19" stroke="#38bdf8" stroke-width="6"/>
+    <polygon points="200,180 216,210 184,210" fill="#38bdf8"/>
+  </g>
+
+  <!-- Status indicators -->
+  <circle cx="200" cy="30" r="4" fill="#38bdf8"/>
+  <circle cx="350" cy="115" r="4" fill="#38bdf8"/>
+  <circle cx="350" cy="285" r="4" fill="#38bdf8"/>
+  <circle cx="200" cy="370" r="4" fill="#38bdf8"/>
+  <circle cx="50" cy="285" r="4" fill="#38bdf8"/>
+  <circle cx="50" cy="115" r="4" fill="#38bdf8"/>
+</svg>

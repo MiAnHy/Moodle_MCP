@@ -25,12 +25,12 @@ export function maskToken(token?: string): string {
 }
 
 /**
- * Validates that a string does not contain CRLF characters.
+ * Validates that a string does not contain CRLF or control injection characters.
  */
 function assertNoCrlf(str: string, fieldName: string): void {
-  if (/[\r\n]/.test(str)) {
+  if (/[\r\n\0]/.test(str)) {
     throw new MoodleAuthError(
-      `${fieldName} contains invalid characters (CRLF)`,
+      `${fieldName} contains invalid characters (CRLF/Null)`,
       'crlf_detected'
     );
   }

@@ -18,6 +18,16 @@ const SENSITIVE_KEYS = new Set([
   'lastlogin',
   'currentlogin',
   'preferences',
+  'apikey',
+  'accesstoken',
+  'sessionid',
+  'cookiekey',
+  'authtoken',
+  'bearertoken',
+  'idnumber',
+  'phone1',
+  'phone2',
+  'address',
 ]);
 
 /**

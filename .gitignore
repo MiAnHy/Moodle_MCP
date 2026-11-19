@@ -18,6 +18,7 @@ auth.json
 # Scratch & Temporary Directories
 .scratch/
 scratch/
+web/lab/
 
 # Logs
 *.log

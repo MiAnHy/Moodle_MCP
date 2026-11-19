@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import express from 'express';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
@@ -19,6 +21,7 @@ export interface SseEngineOptions {
   defaultUrl?: string;
   defaultToken?: string;
   idleTimeoutMs?: number; // 0 to disable periodic sweep, default 30 min
+  maxSessions?: number; // Maximum concurrent sessions, default 100
   createClient?: (baseUrl: string, defaultToken?: string) => MoodleClient;
   createServer?: (options: MoodleServerOptions) => Server;
 }
@@ -45,9 +48,23 @@ export function createSseEngine(options: SseEngineOptions = {}): SseEngine {
   const defaultUrl = options.defaultUrl || 'http://localhost/moodle';
   const defaultToken = options.defaultToken;
   const idleTimeoutMs = options.idleTimeoutMs ?? 30 * 60 * 1000; // 30 minutes
+  const maxSessions = options.maxSessions ?? 100;
 
   const app = express();
-  app.use(express.json());
+  app.use(express.json({ limit: '64kb' }));
+
+  // Static web interface serving (ScrollCraft cockpit UI)
+  const candidateWebDirs = [
+    path.resolve(process.cwd(), 'web'),
+    path.resolve(__dirname, '../../web'),
+    path.resolve(__dirname, '../web'),
+  ];
+  for (const dir of candidateWebDirs) {
+    if (fs.existsSync(dir) && fs.existsSync(path.join(dir, 'index.html'))) {
+      app.use(express.static(dir));
+      break;
+    }
+  }
 
   const activeSessions = new Map<string, SseSession>();
 
@@ -89,6 +106,12 @@ export function createSseEngine(options: SseEngineOptions = {}): SseEngine {
 
   // SSE stream endpoint
   app.get('/sse', async (req, res) => {
+    // Session threshold enforcement preventing memory exhaustion DoS
+    if (activeSessions.size >= maxSessions) {
+      res.status(503).json({ error: 'Server busy: maximum active sessions reached' });
+      return;
+    }
+
     // 1. Session-Scoped Token Isolation per ADR 0009
     let token = defaultToken;
     const authHeader = req.headers.authorization;
@@ -98,12 +121,22 @@ export function createSseEngine(options: SseEngineOptions = {}): SseEngine {
       token = req.query.token;
     }
 
+    if (token && /[\r\n\0]/.test(token)) {
+      res.status(400).json({ error: 'Invalid authentication token: control characters detected' });
+      return;
+    }
+
     const moodleUrl =
       (typeof req.headers['x-moodle-url'] === 'string'
         ? req.headers['x-moodle-url']
         : typeof req.query.url === 'string'
         ? req.query.url
         : defaultUrl) || 'http://localhost/moodle';
+
+    if (/[\r\n\0]/.test(moodleUrl)) {
+      res.status(400).json({ error: 'Invalid Moodle URL: control characters detected' });
+      return;
+    }
 
     // Create isolated per-session client
     const sessionClient = options.createClient

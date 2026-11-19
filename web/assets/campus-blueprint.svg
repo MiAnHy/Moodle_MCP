@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" fill="none">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" opacity="0.35"/>
+      <circle cx="0" cy="0" r="1" fill="#38bdf8" opacity="0.4"/>
+    </pattern>
+    <pattern id="dot-matrix" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.75" fill="#334155" opacity="0.5"/>
+    </pattern>
+    <linearGradient id="fadeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#2563eb" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#07090e" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glowLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Grid -->
+  <rect width="1920" height="1080" fill="#07090e"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- Academic Campus Structural Vectors (Isometric Wireframes) -->
+  <g opacity="0.45" stroke="#38bdf8" stroke-width="1.2">
+    <!-- Quad Hub / Library Complex -->
+    <polygon points="960,240 1280,400 960,560 640,400" fill="url(#fadeGrad)"/>
+    <line x1="960" y1="240" x2="960" y2="340" stroke="#38bdf8" stroke-dasharray="4 4"/>
+    <line x1="1280" y1="400" x2="1280" y2="500"/>
+    <line x1="640" y1="400" x2="640" y2="500"/>
+    <line x1="960" y1="560" x2="960" y2="660"/>
+    <polygon points="960,340 1280,500 960,660 640,500" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+
+    <!-- Faculty & Research Concourse Lines -->
+    <path d="M 640,400 L 320,560 L 320,680 L 640,520 Z" fill="#0d121f" fill-opacity="0.7"/>
+    <path d="M 1280,400 L 1600,560 L 1600,680 L 1280,520 Z" fill="#0d121f" fill-opacity="0.7"/>
+
+    <!-- Data Bus / Telemetry Conduits -->
+    <line x1="320" y1="620" x2="960" y2="940" stroke="url(#glowLine)" stroke-width="2"/>
+    <line x1="1600" y1="620" x2="960" y2="940" stroke="url(#glowLine)" stroke-width="2"/>
+    
+    <!-- Concentric Target Circles -->
+    <circle cx="960" cy="400" r="180" fill="none" stroke="#1e293b" stroke-width="1" stroke-dasharray="6 6"/>
+    <circle cx="960" cy="400" r="260" fill="none" stroke="#2563eb" stroke-width="1" stroke-opacity="0.3"/>
+    <circle cx="960" cy="400" r="340" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="2 8"/>
+  </g>
+
+  <!-- Telemetry Coordinates and Annotations -->
+  <g font-family="monospace" font-size="11" fill="#64748b" opacity="0.6">
+    <text x="80" y="120">LATENCY: 1.4ms · TRANSPORT: STDIO/SSE · NODE: MOODLE_CORE_405</text>
+    <text x="80" y="140">SSRF_GUARDRAIL: ACTIVE [RFC1918_BLOCKED · DNS_REBIND_HOOK_ENGAGED]</text>
+    <text x="1440" y="120">TOOL_REGISTRY: 1,048 WEB SERVICES DISCOVERED</text>
+    <text x="1440" y="140">PRINCIPAL_DELEGATION: ACTIVE (USER_SCOPED)</text>
+  </g>
+</svg>

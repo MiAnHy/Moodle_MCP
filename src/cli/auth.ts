@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { execSync } from 'node:child_process';
 
 export interface AuthConfig {
   url: string;
@@ -48,6 +49,19 @@ export function saveAuthConfig(config: AuthConfig): void {
   );
 
   fs.writeFileSync(filePath, payload, { mode: 0o600 });
+
+  // On Windows, numeric mode 0o600 is ignored by NTFS; apply restrictive ACL via icacls
+  if (process.platform === 'win32') {
+    try {
+      const username = os.userInfo().username;
+      execSync(`icacls "${filePath}" /inheritance:r /grant:r "${username}:F"`, {
+        stdio: 'ignore',
+        windowsHide: true,
+      });
+    } catch {
+      // Best-effort ACL restriction; ignore in environments without icacls support
+    }
+  }
 }
 
 /**

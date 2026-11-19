@@ -108,11 +108,22 @@ export function formatMcpError(
       toolName,
     };
   } else if (error instanceof MoodleRestError) {
+    const rawDetails = error.errorDetails && typeof error.errorDetails === 'object'
+      ? { ...error.errorDetails }
+      : error.errorDetails;
+
+    // Strip sensitive internal debug metadata to prevent server-side path & SQL leakage
+    if (rawDetails && typeof rawDetails === 'object') {
+      delete rawDetails.debuginfo;
+      delete rawDetails.backtrace;
+      delete rawDetails.stacktrace;
+    }
+
     payload = {
       code: error.errorcode || 'rest_error',
       message: error.message,
       category: 'moodle_rest',
-      details: { exception: error.exception, raw: error.errorDetails },
+      details: { exception: error.exception, raw: rawDetails },
       toolName,
     };
   } else if (error instanceof MoodleError) {

@@ -71,3 +71,12 @@ _Avoid_: Ad-hoc readline scripts, scattered TTY mode toggles
 **Error Serialization Seam**:
 The centralized error formatting function (`formatMcpError`) converting Moodle REST errors, network timeouts, SSRF blocks, and Zod parameter validation failures into standardized, machine-readable MCP tool error payloads.  
 _Avoid_: Inconsistent error strings, unformatted stack traces
+
+**Cockpit Telemetry Frontend**:
+The scroll-driven, zero-dependency web interface built upon ScrollCraft scrollytelling grammar, presenting live protocol execution telemetry, role profile toolkits, and interactive safety latch simulations.  
+_Avoid_: Passive brochure, marketing landing page, diorama site
+
+**Dual-Transport Inspector**:
+The bespoke signature interaction component allowing visitors to toggle between local Stdio and remote SSE transports, inspecting simulated JSON-RPC wire frames, token delegation headers, and security invariants in real time.  
+_Avoid_: Static code snippet, screenshot comparison
+

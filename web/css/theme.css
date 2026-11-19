@@ -1,0 +1,681 @@
+/* 
+  Moodle AI Platform - ScrollCraft Theme Floor
+  Grammar: Instrument / Cockpit
+  Palette: Cybernetic Academic / Institutional Blueprint
+*/
+
+:root {
+  --sc-canvas: #07090e;
+  --sc-surface: #0d121f;
+  --sc-surface-elevated: #131929;
+  --sc-ink: #f8fafc;
+  --sc-ink-soft: #94a3b8;
+  --sc-ink-muted: #94a3b8;
+  --sc-accent: #38bdf8;
+  --sc-accent-dim: #0284c7;
+  --sc-accent-ink: #07090e;
+  --sc-accent-glow: rgba(56, 189, 248, 0.22);
+  --sc-danger: #f43f5e;
+  --sc-danger-glow: rgba(244, 63, 94, 0.2);
+  --sc-warning: #fbbf24;
+  --sc-success: #10b981;
+  --sc-success-glow: rgba(16, 185, 129, 0.2);
+  
+  --sc-border: #1e293b;
+  --sc-border-bright: #334155;
+  --sc-border-accent: rgba(56, 189, 248, 0.4);
+
+  --sc-font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --sc-font-text: "Inter", system-ui, -apple-system, sans-serif;
+  --sc-font-mono: "JetBrains Mono", "SF Mono", monospace;
+
+  --sc-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base resets & typography */
+body {
+  background-color: var(--sc-canvas);
+  color: var(--sc-ink);
+  font-family: var(--sc-font-text);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+code, pre, .font-mono {
+  font-family: var(--sc-font-mono);
+}
+
+/* Telemetry Chrome Bar (Instrument Nav) */
+.telemetry-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background: rgba(7, 9, 14, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sc-border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.78rem;
+}
+
+.telemetry-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  color: var(--sc-ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.telemetry-nav__logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.telemetry-nav__metrics {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--sc-ink-muted);
+}
+
+.telemetry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 9999px;
+  color: var(--sc-ink-soft);
+}
+
+.telemetry-pill--live {
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--sc-success);
+  box-shadow: 0 0 8px var(--sc-success);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-cta {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ACT 1: Dimensional Cockpit Hero (3 Visual Planes)
+   ========================================================================== */
+.hero-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Plane 1: Background (-200px) */
+.hero-plane-bg {
+  position: absolute;
+  inset: -10%;
+  background-image: url('../assets/campus-blueprint.svg');
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-180px) scale(1.15);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Plane 2: Midground (Anchor 0px) */
+.hero-plane-mid {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  transform: translateZ(0);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.hero-plane-mid img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 20px 40px rgba(56, 189, 248, 0.2));
+}
+
+/* Plane 3: Foreground Telemetry Console (+120px) */
+.hero-plane-fore {
+  position: relative;
+  z-index: 10;
+  max-width: 920px;
+  width: 90%;
+  margin: 0 auto;
+  transform: translateZ(80px);
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.75rem;
+  color: var(--sc-accent);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid var(--sc-border-accent);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: var(--sc-font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--sc-ink-soft);
+  max-width: 680px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.6;
+}
+
+.hero-terminal-chip {
+  background: rgba(13, 18, 31, 0.9);
+  border: 1px solid var(--sc-border-bright);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  font-family: var(--sc-font-mono);
+  font-size: 0.82rem;
+}
+
+.hero-terminal-chip__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--sc-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--sc-ink-muted);
+}
+
+.chip-status {
+  color: #34d399;
+  font-size: 0.75rem;
+}
+
+.chip-code {
+  color: var(--sc-ink);
+  line-height: 1.5;
+}
+
+.chip-code .dim {
+  color: var(--sc-ink-muted);
+}
+
+.chip-code .hi {
+  color: var(--sc-accent);
+}
+
+/* ==========================================================================
+   ACT 2: Tension / Threat Matrix
+   ========================================================================== */
+.tension-deck {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tension-headline {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tension-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.threat-card {
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.threat-card--vulnerable {
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.threat-card--vulnerable::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--sc-danger);
+}
+
+.threat-card--hardened {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.threat-card--hardened::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--sc-accent);
+}
+
+.threat-card h3 {
+  font-family: var(--sc-font-display);
+  font-size: 1.25rem;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.threat-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--sc-ink-soft);
+}
+
+.threat-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   ACT 3: The Protocol Turn (Architecture)
+   ========================================================================== */
+.protocol-wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.protocol-architecture {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.tier-card {
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--sc-border-bright);
+}
+
+.tier-num {
+  font-family: var(--sc-font-mono);
+  font-size: 0.75rem;
+  color: var(--sc-accent);
+  margin-bottom: 0.5rem;
+}
+
+.tier-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.tier-body {
+  color: var(--sc-ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   ACT 4: The Peak (Two-Phase Mutation Latch)
+   ========================================================================== */
+.peak-stage {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.latch-simulator {
+  background: var(--sc-surface-elevated);
+  border: 1px solid var(--sc-border-bright);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+.latch-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--sc-border);
+}
+
+.latch-btn {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  font-family: var(--sc-font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.latch-btn:hover {
+  opacity: 0.9;
+}
+
+.latch-btn--confirm {
+  background: var(--sc-success);
+  display: none;
+}
+
+.latch-status-pill {
+  font-family: var(--sc-font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  color: var(--sc-ink-muted);
+}
+
+.latch-status-pill.pending {
+  border-color: rgba(251, 191, 36, 0.5);
+  color: var(--sc-warning);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.latch-status-pill.committed {
+  border-color: rgba(16, 185, 129, 0.5);
+  color: var(--sc-success);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.latch-viewers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.code-box {
+  background: #06080d;
+  border: 1px solid var(--sc-border);
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  height: 220px;
+  overflow-y: auto;
+}
+
+.code-box-title {
+  font-size: 0.72rem;
+  color: var(--sc-ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   ACT 5: Range / Profile Matrix
+   ========================================================================== */
+.profile-rail {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  overflow-x: auto;
+}
+
+.profile-card {
+  flex: 0 0 320px;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-role {
+  font-family: var(--sc-font-mono);
+  font-size: 0.75rem;
+  color: var(--sc-accent);
+  margin-bottom: 0.5rem;
+}
+
+.profile-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.profile-tools {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.8rem;
+  color: var(--sc-ink-soft);
+}
+
+.profile-tools li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.profile-tools li::before {
+  content: "›";
+  color: var(--sc-accent);
+}
+
+/* ==========================================================================
+   ACT 6: Commitment & Dual-Transport Inspector (Signature Move)
+   ========================================================================== */
+.inspector-stage {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.transport-toggle-bar {
+  display: inline-flex;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 8px;
+  padding: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.transport-btn {
+  background: transparent;
+  border: none;
+  color: var(--sc-ink-muted);
+  font-family: var(--sc-font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transport-btn.active {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+}
+
+.inspector-console {
+  background: #06080d;
+  border: 1px solid var(--sc-border-bright);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+}
+
+.terminal-copy-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
+  font-family: var(--sc-font-mono);
+  font-size: 0.85rem;
+}
+
+.copy-btn {
+  background: var(--sc-accent);
+  color: var(--sc-accent-ink);
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Footer inside final act */
+.cockpit-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--sc-font-mono);
+  font-size: 0.75rem;
+  color: var(--sc-ink-muted);
+}
+
+.cockpit-footer a {
+  color: var(--sc-ink-soft);
+  text-decoration: none;
+}
+
+.cockpit-footer a:hover {
+  color: var(--sc-accent);
+}
+
+/* Responsive Rules */
+@media (max-width: 860px) {
+  .tension-grid, .protocol-architecture, .latch-viewers {
+    grid-template-columns: 1fr;
+  }
+  .telemetry-nav__metrics {
+    display: none;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-plane-mid {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
